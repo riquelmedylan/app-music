@@ -1,0 +1,100 @@
+@use "../abstracts/colors" as colors;
+@use "../abstracts/font" as f;
+@use "../abstracts/mediaqueries" as mq;
+@use "../abstracts/functions" as fun;
+
+.navbar {
+     background-color: fun.color("black-03");
+     display: flex;
+     justify-content: space-evenly;
+     align-items: center;
+     padding: 0.2em 0;
+     position: relative;
+     width: 100%;
+
+     .navbar__text {
+          color: fun.color("white-01");
+          margin: 0 5px;
+     }
+     .navbar__logo {
+          color: fun.color("white-01");
+          font-size: fun.fontSize("x");
+          font-weight: fun.fontWeight("m");
+     }
+     .navbar__section-links-ds {
+          display: none;
+     }
+     .navbar__section-links {
+          align-items: center;
+          display: flex;
+
+          .navbar__bars {
+               color: fun.color("white-01");
+               font-size: 2rem;
+          }
+     }
+     .navbar__bars-sidebar {
+          align-items: center;
+          background-color: fun.color("black-03");
+          display: flex;
+          height: 100vh;
+          justify-content: center;
+          overflow: hidden;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 0;
+          .sidebar__container-section {
+               display: flex;
+               flex-direction: column;
+               height: 90%;
+               justify-content: space-around;
+               width: 90%;
+               .sidebar__times {
+                    color: fun.color("white-01");
+                    position: absolute;
+                    top: 0.5rem;
+                    right: 0.2rem;
+               }
+               .navbar__text {
+                    color: fun.color("white-01");
+                    max-width: 76%;
+               }
+          }
+     }
+     .active__sidebar {
+          width: 14rem;
+          transition: width 0.5s ease-in;
+     }
+     .remove__sidebar {
+          width: 0rem;
+          transition: width 0.5s ease-in;
+     }
+}
+
+@media (min-width: fun.mq("md")) {
+     .navbar {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          .navbar__section-links-ds {
+               display: block;
+               margin-bottom: 0.4rem;
+               text-align: center;
+          }
+          .navbar__section-links {
+               display: none;
+          }
+          .navbar__bars-sidebar {
+               display: none;
+          }
+     }
+}
+
+@media (min-width: fun.mq("lg")) {
+     .navbar {
+          .navbar__section-links-ds {
+               margin: 10px 0;
+          }
+     }
+}

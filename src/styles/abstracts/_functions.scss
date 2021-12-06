@@ -1,0 +1,19 @@
+@use './colors' as colors;
+@use './mediaqueries' as mq;
+@use './font' as font;
+
+@function color($name) {
+    @return map-get($map: colors.$colors, $key: $name);
+}
+
+@function mq($name) {
+    @return map-get($map: mq.$mediaQueries, $key: $name);
+}
+
+@function fontSize($name) {
+    @return map-get($map: font.$fontSize, $key: $name);
+}
+
+@function fontWeight($name) {
+    @return map-get($map: font.$fontWeight, $key: $name);
+}
