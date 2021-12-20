@@ -1,19 +1,14 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { getRemoveSidebar } from "../helpers/getRemoveSidebar";
 
 export const Sidebar = () => {
-     const removeSidebar = () => {
-          const sidebar = document.querySelector(".navbar__bars-sidebar");
-          sidebar.classList.remove("active__sidebar");
-          sidebar.classList.add("remove__sidebar");
-     };
-
      return (
           <div className="navbar__bars-sidebar">
                <div className="sidebar__container-section">
                     <FaTimes
-                         onClick={removeSidebar}
+                         onClick={getRemoveSidebar}
                          className="sidebar__times"
                     />
                     <NavLink className="navbar__text" to="/instrumentos">

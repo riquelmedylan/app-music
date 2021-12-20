@@ -2,17 +2,9 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { Sidebar } from "./Sidebar";
+import { getSidebar } from "../helpers/getSidebar";
+
 export const Navbar = () => {
-     const addSidebar = (e) => {
-          const sidebar = document.querySelector(".navbar__bars-sidebar");
-          const main = document.querySelector(".main");
-
-          sidebar.classList.add("active__sidebar");
-          sidebar.classList.remove("remove__sidebar");
-
-          e.target === main && sidebar.classList.remove("remove__sidebar");
-     };
-
      return (
           <nav className="navbar">
                <div className="navbar__section-logo">
@@ -21,33 +13,36 @@ export const Navbar = () => {
                     </Link>
                </div>
                <div className="navbar__section-links-ds">
-                    <NavLink className="navbar__text" to="/instrumentos">
+                    <NavLink
+                         className="navbar__text"
+                         to="/product/instrumentos"
+                    >
                          Instrumentos musicales
                     </NavLink>
-                    <NavLink className="navbar__text" to="/electronica-y-audio">
+                    <NavLink
+                         className="navbar__text"
+                         to="/product/electronica-y-audio"
+                    >
                          Electrónica y audio
                     </NavLink>
-                    <NavLink className="navbar__text" to="/baterias">
+                    <NavLink className="navbar__text" to="/product/baterias">
                          Baterías
                     </NavLink>
-                    <NavLink className="navbar__text" to="/guitarras">
+                    <NavLink className="navbar__text" to="/product/guitarras">
                          Guitarras
                     </NavLink>
-                    <NavLink className="navbar__text" to="/bajos">
+                    <NavLink className="navbar__text" to="/product/bajos">
                          Bajos
                     </NavLink>
-                    <NavLink className="navbar__text" to="/teclas">
-                         Teclas
+                    <NavLink className="navbar__text" to="/product/teclados">
+                         Teclados
                     </NavLink>
-                    <NavLink className="navbar__text" to="/ukeleles">
+                    <NavLink className="navbar__text" to="/product/ukeleles">
                          Ukeleles
-                    </NavLink>
-                    <NavLink className="navbar__text" to="/accesorios">
-                         Accesorios
                     </NavLink>
                </div>
                <div className="navbar__section-links">
-                    <FaBars onClick={addSidebar} className="navbar__bars" />
+                    <FaBars onClick={getSidebar} className="navbar__bars" />
                </div>
                <Sidebar />
           </nav>

@@ -5,4 +5,10 @@ import "./styles/styles.scss";
 
 const root = document.querySelector("#root");
 
-ReactDOM.render(<App />, root);
+ReactDOM.render(
+     <React.StrictMode>
+          <App />
+     </React.StrictMode>,
+
+     root
+);

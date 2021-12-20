@@ -15,26 +15,41 @@ export const Footer = () => {
                          </NavLink>
                          <NavLink
                               className="footer__text"
-                              to="/electronica-y-audio"
+                              to="/products/electronica-y-audio"
                          >
                               Electrónica y audio
                          </NavLink>
-                         <NavLink className="footer__text" to="/baterias">
+                         <NavLink
+                              className="footer__text"
+                              to="/products/baterias"
+                         >
                               Baterías
                          </NavLink>
-                         <NavLink className="footer__text" to="/guitarras">
+                         <NavLink
+                              className="footer__text"
+                              to="/products/guitarras"
+                         >
                               Guitarras
                          </NavLink>
-                         <NavLink className="footer__text" to="/bajos">
+                         <NavLink className="footer__text" to="/products/bajos">
                               Bajos
                          </NavLink>
-                         <NavLink className="footer__text" to="/teclas">
+                         <NavLink
+                              className="footer__text"
+                              to="/products/teclas"
+                         >
                               Teclas
                          </NavLink>
-                         <NavLink className="footer__text" to="/ukeleles">
+                         <NavLink
+                              className="footer__text"
+                              to="/products/ukeleles"
+                         >
                               Ukeleles
                          </NavLink>
-                         <NavLink className="footer__text" to="/accesorios">
+                         <NavLink
+                              className="footer__text"
+                              to="/products/accesorios"
+                         >
                               Accesorios
                          </NavLink>
                     </div>
