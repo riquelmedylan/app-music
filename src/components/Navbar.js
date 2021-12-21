@@ -3,10 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { Sidebar } from "./Sidebar";
 import { getSidebar } from "../helpers/getSidebar";
+import { getRemoveSidebar } from "../helpers/getRemoveSidebar";
 
 export const Navbar = () => {
      return (
-          <nav className="navbar">
+          <nav onClick={getRemoveSidebar} className="navbar">
                <div className="navbar__section-logo">
                     <Link to="/" className="navbar__logo">
                          App Music

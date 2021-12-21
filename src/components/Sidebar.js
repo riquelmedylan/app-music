@@ -11,28 +11,60 @@ export const Sidebar = () => {
                          onClick={getRemoveSidebar}
                          className="sidebar__times"
                     />
-                    <NavLink className="navbar__text" to="/instrumentos">
+                    <NavLink
+                         onClick={getRemoveSidebar}
+                         className="navbar__text"
+                         to="/product/instrumentos"
+                    >
                          Instrumentos musicales
                     </NavLink>
-                    <NavLink className="navbar__text" to="/electronica-y-audio">
+                    <NavLink
+                         onClick={getRemoveSidebar}
+                         className="navbar__text"
+                         to="/product/electronica-y-audio"
+                    >
                          Electrónica y audio
                     </NavLink>
-                    <NavLink className="navbar__text" to="/baterias">
+                    <NavLink
+                         onClick={getRemoveSidebar}
+                         className="navbar__text"
+                         to="/product/baterias"
+                    >
                          Baterías
                     </NavLink>
-                    <NavLink className="navbar__text" to="/guitarras">
+                    <NavLink
+                         onClick={getRemoveSidebar}
+                         className="navbar__text"
+                         to="/product/guitarras"
+                    >
                          Guitarras
                     </NavLink>
-                    <NavLink className="navbar__text" to="/bajos">
+                    <NavLink
+                         onClick={getRemoveSidebar}
+                         className="navbar__text"
+                         to="/product/bajos"
+                    >
                          Bajos
                     </NavLink>
-                    <NavLink className="navbar__text" to="/teclas">
+                    <NavLink
+                         onClick={getRemoveSidebar}
+                         className="navbar__text"
+                         to="/product/teclas"
+                    >
                          Teclas
                     </NavLink>
-                    <NavLink className="navbar__text" to="/ukeleles">
+                    <NavLink
+                         onClick={getRemoveSidebar}
+                         className="navbar__text"
+                         to="/product/ukeleles"
+                    >
                          Ukeleles
                     </NavLink>
-                    <NavLink className="navbar__text" to="/accesorios">
+                    <NavLink
+                         onClick={getRemoveSidebar}
+                         className="navbar__text"
+                         to="/product/accesorios"
+                    >
                          Accesorios
                     </NavLink>
                </div>
