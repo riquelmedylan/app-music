@@ -5,6 +5,7 @@ export const getRemoveSidebar = (e) => {
      const navbar = document.querySelector(".navbar");
      const main = document.querySelector(".main");
      const section = document.querySelectorAll("section");
+     const footer = document.querySelector(".footer");
      const a = document.querySelectorAll("a");
      const p = document.querySelectorAll("p");
 
@@ -14,7 +15,12 @@ export const getRemoveSidebar = (e) => {
           sidebar.classList.add("remove__sidebar");
      }
 
-     if (e.target === navbar || e.target === main || e.target === exitSidebar) {
+     if (
+          e.target === navbar ||
+          e.target === main ||
+          e.target === exitSidebar ||
+          e.target === footer
+     ) {
           if (sidebar.classList.contains("active__sidebar")) {
                sidebar.classList.remove("active__sidebar");
                sidebar.classList.add("remove__sidebar");

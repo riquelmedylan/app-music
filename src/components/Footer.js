@@ -1,54 +1,58 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { getRemoveSidebar } from "../helpers/getRemoveSidebar";
 
 export const Footer = () => {
      return (
-          <footer className="footer">
+          <footer onClick={getRemoveSidebar} className="footer">
                <div className="footer__container">
                     <div>
                          <p className="footer__email">appguitar@gmail.com</p>
                     </div>
                     <div className="footer__sections">
-                         <NavLink className="footer__text" to="/instrumentos">
+                         <NavLink
+                              className="footer__text"
+                              to="/product/instrumentos"
+                         >
                               Instrumentos musicales
                          </NavLink>
                          <NavLink
                               className="footer__text"
-                              to="/products/electronica-y-audio"
+                              to="/product/electronica-y-audio"
                          >
                               Electrónica y audio
                          </NavLink>
                          <NavLink
                               className="footer__text"
-                              to="/products/baterias"
+                              to="/product/baterias"
                          >
                               Baterías
                          </NavLink>
                          <NavLink
                               className="footer__text"
-                              to="/products/guitarras"
+                              to="/product/guitarras"
                          >
                               Guitarras
                          </NavLink>
-                         <NavLink className="footer__text" to="/products/bajos">
+                         <NavLink className="footer__text" to="/product/bajos">
                               Bajos
                          </NavLink>
                          <NavLink
                               className="footer__text"
-                              to="/products/teclas"
+                              to="/product/teclados"
                          >
-                              Teclas
+                              Teclados
                          </NavLink>
                          <NavLink
                               className="footer__text"
-                              to="/products/ukeleles"
+                              to="/product/ukeleles"
                          >
                               Ukeleles
                          </NavLink>
                          <NavLink
                               className="footer__text"
-                              to="/products/accesorios"
+                              to="/product/accesorios"
                          >
                               Accesorios
                          </NavLink>

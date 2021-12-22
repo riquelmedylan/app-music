@@ -49,9 +49,9 @@ export const Sidebar = () => {
                     <NavLink
                          onClick={getRemoveSidebar}
                          className="navbar__text"
-                         to="/product/teclas"
+                         to="/product/teclados"
                     >
-                         Teclas
+                         Teclados
                     </NavLink>
                     <NavLink
                          onClick={getRemoveSidebar}
