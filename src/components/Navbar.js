@@ -22,7 +22,7 @@ export const Navbar = () => {
                     </NavLink>
                     <NavLink
                          className="navbar__text"
-                         to="/product/electronica-y-audio"
+                         to="/product/electronica y audio"
                     >
                          Electrónica y audio
                     </NavLink>
