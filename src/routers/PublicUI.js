@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
+import { BuyProduct } from "../components/pages/BuyProduct";
 import { ErrorScreen } from "../components/pages/ErrorScreen";
 import { HomeScreen } from "../components/pages/HomeScreen";
 import { ProductsScreen } from "../components/pages/ProductsScreen";
@@ -16,6 +17,10 @@ export const PublicUi = () => {
                          <Route
                               path="/product/:category"
                               element={<ProductsScreen />}
+                         />
+                         <Route
+                              path="/product/:category/:id"
+                              element={<BuyProduct />}
                          />
                          <Route path="/" element={<HomeScreen />} />
                          <Route path="/home" element={<HomeScreen />} />

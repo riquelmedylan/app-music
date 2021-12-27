@@ -1,11 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export const ContainerProductScreen = ({ image, nameProductBrand, price }) => {
+export const ContainerProductScreen = ({
+     image,
+     nameProductBrand,
+     price,
+     _id,
+     category,
+}) => {
      return (
-          <div>
-               <img src={image} alt={nameProductBrand} />
-               <div>{nameProductBrand}</div>
-               <div>{price}</div>
-          </div>
+          <Link to={`/product/${category}/${_id}`}>
+               <div className="container__product">
+                    <img
+                         className="container__product-img"
+                         src={image}
+                         alt={nameProductBrand}
+                    />
+                    <div className="container__product-text">
+                         <p>{nameProductBrand}</p>
+                         <p>{price}</p>
+                    </div>
+               </div>
+          </Link>
      );
 };
