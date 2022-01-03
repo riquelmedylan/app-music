@@ -14,7 +14,7 @@ export const Sidebar = () => {
                     <NavLink
                          onClick={getRemoveSidebar}
                          className="navbar__text"
-                         to="/product/instrumentos"
+                         to="/instrumentos"
                     >
                          Instrumentos musicales
                     </NavLink>

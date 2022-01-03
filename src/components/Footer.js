@@ -11,10 +11,7 @@ export const Footer = () => {
                          <p className="footer__email">appguitar@gmail.com</p>
                     </div>
                     <div className="footer__sections">
-                         <NavLink
-                              className="footer__text"
-                              to="/product/instrumentos"
-                         >
+                         <NavLink className="footer__text" to="/instrumentos">
                               Instrumentos musicales
                          </NavLink>
                          <NavLink

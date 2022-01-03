@@ -14,10 +14,7 @@ export const Navbar = () => {
                     </Link>
                </div>
                <div className="navbar__section-links-ds">
-                    <NavLink
-                         className="navbar__text"
-                         to="/product/instrumentos"
-                    >
+                    <NavLink className="navbar__text" to="/instrumentos">
                          Instrumentos musicales
                     </NavLink>
                     <NavLink

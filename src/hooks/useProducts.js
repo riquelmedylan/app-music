@@ -7,5 +7,6 @@ export const useProducts = (category) => {
      useEffect(() => {
           getProductsCategory(category).then((data) => setData(data));
      }, [category]);
+     // console.log(data);
      return data;
 };
