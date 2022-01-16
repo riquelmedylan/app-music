@@ -2,12 +2,14 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
-import { BuyProduct } from "../components/pages/BuyProduct";
+import { BuyProduct } from "../components/pages/product/BuyProduct";
 import { ErrorScreen } from "../components/pages/ErrorScreen";
 import { HomeScreen } from "../components/pages/HomeScreen";
-import { Instruments } from "../components/pages/Instruments";
-import { ProductsScreen } from "../components/pages/ProductsScreen";
+import { Instruments } from "../components/pages/product/Instruments";
+import { ProductsScreen } from "../components/pages/product/ProductsScreen";
 import { getRemoveSidebar } from "../helpers/getRemoveSidebar";
+import { LoginScreen } from "../components/pages/auth/LoginScreen";
+import { RegisterScreen } from "../components/pages/auth/RegisterScreen";
 
 export const PublicUi = () => {
      return (
@@ -15,6 +17,11 @@ export const PublicUi = () => {
                <Navbar />
                <main onClick={getRemoveSidebar} className="main">
                     <Routes>
+                         <Route path="/auth/login" element={<LoginScreen />} />
+                         <Route
+                              path="/auth/register"
+                              element={<RegisterScreen />}
+                         />
                          <Route
                               path="/instrumentos"
                               element={<Instruments />}

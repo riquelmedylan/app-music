@@ -67,6 +67,20 @@ export const Sidebar = () => {
                     >
                          Accesorios
                     </NavLink>
+                    <NavLink
+                         onClick={getRemoveSidebar}
+                         className="navbar__text"
+                         to="/auth/login"
+                    >
+                         Iniciar Sesión
+                    </NavLink>
+                    <NavLink
+                         onClick={getRemoveSidebar}
+                         className="navbar__text"
+                         to="/auth/register"
+                    >
+                         Registrarse
+                    </NavLink>
                </div>
           </div>
      );

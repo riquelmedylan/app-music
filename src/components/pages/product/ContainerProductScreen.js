@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getPostProduct } from "../../helpers/getPostProduct";
 
 export const ContainerProductScreen = ({
      image,

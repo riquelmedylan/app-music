@@ -92,9 +92,9 @@
                     }
                }
                .single__product-buy {
-                    background: #e1e1e1;
+                    background: fun.color("white-02");
                     border-radius: 5px;
-                    border: 2px solid #252525;
+                    border: 2px solid fun.color("black-05");
                     margin-top: 20px;
                     outline: none;
                     cursor: pointer;

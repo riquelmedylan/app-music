@@ -1,5 +1,5 @@
 import React from "react";
-import { useProducts } from "../../hooks/useProducts";
+import { useProducts } from "../../../hooks/useProducts";
 import { ContainerProductScreen } from "./ContainerProductScreen";
 export const InstrumentProductScreen = ({ product }) => {
      const category = useProducts(product);

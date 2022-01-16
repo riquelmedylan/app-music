@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { getPostProduct } from "../../helpers/getPostProduct";
+import { getPostProduct } from "../../../helpers/getPostProduct";
 
 export const Product = ({ name, description, price, image, visited }) => {
      const { pathname } = useLocation();

@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-import { useProduct } from "../../hooks/useProduct";
+import { useProduct } from "../../../hooks/useProduct";
 import { Product } from "./Product";
 
 export const BuyProduct = () => {

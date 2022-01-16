@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { useProducts } from "../../hooks/useProducts";
+import { useProducts } from "../../../hooks/useProducts";
 import { ContainerProductScreen } from "./ContainerProductScreen";
 
 export const ProductsScreen = () => {

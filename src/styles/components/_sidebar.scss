@@ -1,0 +1,44 @@
+@use "../abstracts/colors" as colors;
+@use "../abstracts/font" as f;
+@use "../abstracts/mediaqueries" as mq;
+@use "../abstracts/functions" as fun;
+
+.navbar__bars-sidebar {
+     align-items: center;
+     background-color: fun.color("black-03");
+     display: flex;
+     height: 100vh;
+     justify-content: center;
+     overflow: hidden;
+     position: fixed;
+     right: 0;
+     top: 0;
+     width: 0;
+     .sidebar__container-section {
+          display: flex;
+          flex-direction: column;
+          height: 90%;
+          justify-content: space-around;
+          width: 90%;
+          .sidebar__times {
+               color: fun.color("white-01");
+               position: absolute;
+               top: 0.5rem;
+               right: 0.2rem;
+          }
+          .navbar__text {
+               color: fun.color("white-01");
+               max-width: 76%;
+          }
+     }
+}
+.active__sidebar {
+     transition: width 0.5s ease-in;
+     width: 14rem;
+     z-index: 1;
+}
+.remove__sidebar {
+     transition: width 0.5s ease-in;
+     width: 0rem;
+     z-index: 1;
+}
