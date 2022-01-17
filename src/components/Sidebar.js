@@ -1,9 +1,20 @@
 import React from "react";
+import { GoogleLogout } from "react-google-login";
 import { FaTimes } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { getRemoveSidebar } from "../helpers/getRemoveSidebar";
 
 export const Sidebar = () => {
+     const user = localStorage.getItem("user");
+     let history = useNavigate();
+
+     const { REACT_APP_USER_ID } = process.env;
+
+     const onSuccess = () => {
+          localStorage.removeItem("user");
+          history("/auth/login");
+     };
+
      return (
           <div className="navbar__bars-sidebar">
                <div className="sidebar__container-section">
@@ -67,20 +78,39 @@ export const Sidebar = () => {
                     >
                          Accesorios
                     </NavLink>
-                    <NavLink
-                         onClick={getRemoveSidebar}
-                         className="navbar__text"
-                         to="/auth/login"
-                    >
-                         Iniciar Sesión
-                    </NavLink>
-                    <NavLink
-                         onClick={getRemoveSidebar}
-                         className="navbar__text"
-                         to="/auth/register"
-                    >
-                         Registrarse
-                    </NavLink>
+                    {!user ? (
+                         <>
+                              <NavLink
+                                   to="/auth/login"
+                                   className="navbar__text"
+                              >
+                                   Iniciar Sesión
+                              </NavLink>
+                              <NavLink
+                                   to="/auth/register"
+                                   className="navbar__text"
+                              >
+                                   Registrarse
+                              </NavLink>
+                         </>
+                    ) : (
+                         <>
+                              <GoogleLogout
+                                   onClick={getRemoveSidebar}
+                                   onLogoutSuccess={onSuccess}
+                                   clientId={REACT_APP_USER_ID}
+                                   render={(renderProps) => (
+                                        <button
+                                             className="button__logout-user"
+                                             disabled={renderProps.disabled}
+                                             onClick={renderProps.onClick}
+                                        >
+                                             Cerrar Sesion
+                                        </button>
+                                   )}
+                              ></GoogleLogout>
+                         </>
+                    )}
                </div>
           </div>
      );

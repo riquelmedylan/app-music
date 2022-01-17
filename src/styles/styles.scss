@@ -6,8 +6,11 @@
 @use "./components/main";
 @use "./components/footer";
 @use "./components/sidebar";
+@use "./components/load";
 
 //pages
+@use "./pages/viewProducts";
+@use "./pages/viewOnlyProduct";
 @use "./pages/authScreen";
 
 // font

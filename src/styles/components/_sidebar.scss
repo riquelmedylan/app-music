@@ -30,6 +30,13 @@
                color: fun.color("white-01");
                max-width: 76%;
           }
+          .button__logout-user {
+               border: none;
+               background: white;
+               font-weight: 500;
+               cursor: pointer;
+               padding: 5px;
+          }
      }
 }
 .active__sidebar {

@@ -1,10 +1,14 @@
-import React, { useEffect, useRef } from "react";
-import GoogleLogin from "react-google-login";
+import React, { useEffect, useReducer, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUserLogin, postUserGoogle } from "../../../helpers/getRequestUser";
+import { reducer } from "../../../reducer/loginReducer";
+import { userLoginState } from "../../../states/states";
+import GoogleLogin from "react-google-login";
 
 export const LoginScreen = () => {
      let navigate = useNavigate();
+
+     const [state, dispatch] = useReducer(reducer, userLoginState);
 
      const emailRef = useRef(null);
      const passwordRef = useRef(null);
@@ -23,12 +27,30 @@ export const LoginScreen = () => {
 
      const onLogin = async (e) => {
           e.preventDefault();
-          const email = emailRef.current.value;
+          const emailLogin = emailRef.current.value;
 
           const passwordLogin = passwordRef.current.value;
-          const token = await getUserLogin(email, passwordLogin);
-          localStorage.setItem("user", token);
-          navigate("/");
+
+          const { token, email, password, msg } = await getUserLogin(
+               emailLogin,
+               passwordLogin
+          );
+
+          if (!email) {
+               dispatch({ type: "error", payload: msg });
+          }
+
+          if (!password) {
+               dispatch({
+                    type: "error",
+                    payload: msg,
+               });
+          }
+
+          if (token) {
+               localStorage.setItem("user", token);
+               navigate("/");
+          }
      };
 
      const onSuccess = (googleData) => {
@@ -62,6 +84,11 @@ export const LoginScreen = () => {
                               autoComplete="off"
                               placeholder="Ingrese su Contraseña"
                          />
+                         {state.status === false && (
+                              <div className="container__error-auth">
+                                   <p>{state.msg}</p>
+                              </div>
+                         )}
                          <GoogleLogin
                               className="button__google"
                               clientId={REACT_APP_USER_ID}

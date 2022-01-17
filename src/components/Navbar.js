@@ -87,7 +87,7 @@ export const Navbar = () => {
                                         clientId={REACT_APP_USER_ID}
                                         render={(renderProps) => (
                                              <button
-                                                  className="navbar__button-logout"
+                                                  className="button__logout-user"
                                                   disabled={
                                                        renderProps.disabled
                                                   }

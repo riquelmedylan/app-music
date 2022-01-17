@@ -1,13 +1,15 @@
 import axios from "axios";
 const { REACT_APP_SECRET_OR_PRIVATE_KEY } = process.env;
-export const getUserLogin = async (email, pass) => {
+export const getUserLogin = async (emailUser, pass) => {
      try {
           const res = await axios({
                method: "GET",
-               url: `http://localhost:8080/user/${email}/${pass}`,
+               url: `http://localhost:8080/user/${emailUser}/${pass}`,
           });
-          const token = res.data;
-          return token;
+
+          const { token, email, msg, password } = res.data;
+
+          return { token, email, msg, password };
      } catch (error) {
           throw new Error(error);
      }

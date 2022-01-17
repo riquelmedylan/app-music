@@ -1,0 +1,41 @@
+@use "../abstracts/colors" as colors;
+@use "../abstracts/font" as f;
+@use "../abstracts/mediaqueries" as mq;
+@use "../abstracts/functions" as fun;
+
+.container__product {
+     border-radius: 4px;
+     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+     padding: 15px 0;
+     overflow: hidden;
+
+     &-img {
+          display: block;
+
+          margin: 0 auto;
+          width: 95%;
+     }
+     &-text {
+          border-top: {
+               style: solid;
+               width: 3px;
+               color: rgba(128, 128, 128, 0.356);
+          }
+          border-radius: 8px;
+          color: fun.color("black-01");
+          text-align: center;
+
+          margin-top: 5px;
+     }
+}
+.section__uno,
+.section__dos {
+     align-items: center;
+     background: #808080;
+     display: flex;
+     justify-content: center;
+     margin-bottom: 10px;
+     padding: 5px;
+     text-align: center;
+     width: 100%;
+}
