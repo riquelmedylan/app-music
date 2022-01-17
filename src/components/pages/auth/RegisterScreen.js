@@ -1,11 +1,44 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import GoogleLogin from "react-google-login";
-import { getUserGoogle } from "../../../helpers/getUserGoogle";
+import { useNavigate } from "react-router-dom";
+
+import { postUserGoogle, postUser } from "../../../helpers/getRequestUser";
 
 export const RegisterScreen = () => {
-     const onSuccess = async (googleData) => {
-          const { tokenId } = googleData;
-          getUserGoogle(tokenId);
+     let navigate = useNavigate();
+
+     const nicknameRef = useRef(null);
+     const emailRef = useRef(null);
+     const passwordRef = useRef(null);
+
+     const { REACT_APP_USER_ID } = process.env;
+
+     const user = !localStorage.getItem("user")
+          ? null || undefined
+          : JSON.stringify(localStorage.getItem("user"));
+
+     useEffect(() => {
+          if (user) {
+               navigate("/");
+          }
+     });
+
+     const onSubmit = (e) => {
+          e.preventDefault();
+          const nickname = nicknameRef.current.value;
+          const email = emailRef.current.value;
+          const password = passwordRef.current.value;
+          const token = Math.random().toString(22).substring(3, 23);
+          localStorage.setItem("user", token);
+          postUser(nickname, email, password, token);
+          navigate("/");
+     };
+
+     const onSuccess = (googleData) => {
+          const { tokenId, googleId } = googleData;
+          postUserGoogle(tokenId);
+          localStorage.setItem("user", googleId);
+          navigate("/");
      };
 
      const onFailure = (res) => {
@@ -17,35 +50,40 @@ export const RegisterScreen = () => {
                <div className="container__register">
                     <form className="form">
                          <input
+                              autoComplete="on"
                               className="form__input"
                               name="nickname"
-                              type="text"
-                              autoComplete="on"
                               placeholder="Introduzca un nombre"
+                              type="text"
+                              ref={nicknameRef}
                          />
                          <input
+                              autoComplete="on"
                               className="form__input"
                               name="email"
-                              type="email"
-                              autoComplete="on"
                               placeholder="Introduzca un Correo"
+                              type="email"
+                              ref={emailRef}
                          />
                          <input
+                              autoComplete="off"
                               className="form__input"
                               name="password"
                               type="password"
-                              autoComplete="off"
                               placeholder="Introduzca una Contraseña"
+                              ref={passwordRef}
                          />
                          <GoogleLogin
                               className="button__google"
-                              clientId="559711528233-p82vjjlc2qsc7brtpl70kkhme95qilm6.apps.googleusercontent.com"
+                              clientId={REACT_APP_USER_ID}
                               buttonText="Iniciar sesion"
                               onSuccess={onSuccess}
                               onFailure={onFailure}
                               cookiePolicy={"single_host_origin"}
                          />
-                         <button className="form__button">Registrarse</button>
+                         <button onClick={onSubmit} className="form__button">
+                              Registrarse
+                         </button>
                     </form>
                </div>
           </section>

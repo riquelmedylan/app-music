@@ -1,10 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getPostProduct } from "../../../helpers/getPostProduct";
 
 export const Product = ({ name, description, price, image, visited }) => {
-     const { pathname } = useLocation();
-     const id = pathname.substring(33);
+     const { id } = useParams();
      return (
           <section
                onLoad={() => {

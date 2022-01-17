@@ -52,6 +52,12 @@
                flex-direction: column;
                justify-content: center;
                width: 20%;
+               .navbar__button-logout {
+                    border: none;
+                    background: white;
+                    font-weight: 500;
+                    padding: 3px 0;
+               }
           }
           .navbar__section-flex {
                align-items: center;
@@ -75,6 +81,13 @@
           .navbar__section-links-auth {
                flex-direction: row;
                width: 30%;
+               .navbar__button-logout {
+                    cursor: pointer;
+                    padding: {
+                         left: 5px;
+                         right: 5px;
+                    }
+               }
           }
      }
 }

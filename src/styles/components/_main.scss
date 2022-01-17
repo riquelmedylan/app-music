@@ -9,6 +9,7 @@
 .main {
      min-height: 90vh;
      width: 100%;
+     margin-bottom: 30px;
      .container__main-text {
           width: 80%;
           margin-left: auto;
@@ -18,7 +19,7 @@
      .main__container {
           display: grid;
           column-gap: 10px;
-          grid-template-rows: 1fr, 1fr;
+          grid-template-rows: 1fr 1fr;
           grid-template-columns: 1fr;
           margin: 40px auto;
           row-gap: 3rem;
@@ -70,14 +71,15 @@
                flex-direction: column;
                margin: 0 auto;
                overflow: hidden;
+               row-gap: 20px;
                width: 100%;
                .single__container {
                     display: flex;
                     .single__container-imgs {
                          border: 1px solid gray;
-                         display: flex;
                          cursor: pointer;
-                         height: 5rem;
+                         display: flex;
+                         height: 4em;
                          margin: 0 5px;
                          width: 5rem;
                          .much__imgs {
