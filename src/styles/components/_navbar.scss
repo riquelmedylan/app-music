@@ -64,7 +64,7 @@
                display: flex;
                justify-content: space-between;
                margin: 0 auto;
-               width: 80%;
+               width: 90%;
           }
           .navbar__section-links,
           .navbar__bars-sidebar {
@@ -88,6 +88,9 @@
                          right: 5px;
                     }
                }
+          }
+          .navbar__section-flex {
+               width: 80%;
           }
      }
 }

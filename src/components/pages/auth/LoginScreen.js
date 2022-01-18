@@ -31,7 +31,7 @@ export const LoginScreen = () => {
 
           const passwordLogin = passwordRef.current.value;
 
-          const { token, email, password, msg } = await getUserLogin(
+          const { token, email, password, msg, uid } = await getUserLogin(
                emailLogin,
                passwordLogin
           );
@@ -49,14 +49,16 @@ export const LoginScreen = () => {
 
           if (token) {
                localStorage.setItem("user", token);
+               localStorage.setItem("uid", uid);
                navigate("/");
           }
      };
 
-     const onSuccess = (googleData) => {
+     const onSuccess = async (googleData) => {
           const { tokenId, googleId } = googleData;
-          postUserGoogle(tokenId);
+          const uid = await postUserGoogle(tokenId);
           localStorage.setItem("user", googleId);
+          localStorage.setItem("uid", uid);
           navigate("/");
      };
 

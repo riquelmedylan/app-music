@@ -1,9 +1,19 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getPostProduct } from "../../../helpers/getPostProduct";
+import { putUserShoppingCart } from "../../../helpers/getRequestUser";
 
 export const Product = ({ name, description, price, image, visited }) => {
      const { id } = useParams();
+     const navigate = useNavigate();
+
+     const isBuy = (e) => {
+          e.preventDefault();
+          const uid = localStorage.getItem("uid");
+          putUserShoppingCart(uid, id);
+          navigate("/auth/shop");
+     };
+
      return (
           <section
                onLoad={() => {
@@ -33,7 +43,9 @@ export const Product = ({ name, description, price, image, visited }) => {
                     Precio: {price}
                </strong>
 
-               <button className="single__product-buy">Comprar</button>
+               <button onClick={isBuy} className="single__product-buy">
+                    Comprar
+               </button>
           </section>
      );
 };

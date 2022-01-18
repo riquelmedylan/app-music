@@ -81,7 +81,13 @@ export const Navbar = () => {
                                    </NavLink>
                               </>
                          ) : (
-                              <>
+                              <div>
+                                   <NavLink
+                                        to="/auth/shop"
+                                        className="navbar__text"
+                                   >
+                                        Carrito
+                                   </NavLink>
                                    <GoogleLogout
                                         onLogoutSuccess={onSuccess}
                                         clientId={REACT_APP_USER_ID}
@@ -97,7 +103,7 @@ export const Navbar = () => {
                                              </button>
                                         )}
                                    ></GoogleLogout>
-                              </>
+                              </div>
                          )}
                     </div>
                </div>

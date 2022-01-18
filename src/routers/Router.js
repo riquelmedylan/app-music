@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { PublicUi } from "./PublicUI";
+import { Routers } from "./Route";
 
 export const RouterApp = () => {
      return (
           <Router>
                <div>
                     <React.Fragment>
-                         <PublicUi />
+                         <Routers />
                     </React.Fragment>
                </div>
           </Router>

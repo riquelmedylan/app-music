@@ -95,6 +95,9 @@ export const Sidebar = () => {
                          </>
                     ) : (
                          <>
+                              <NavLink to="/auth/shop" className="navbar__text">
+                                   Carrito
+                              </NavLink>
                               <GoogleLogout
                                    onClick={getRemoveSidebar}
                                    onLogoutSuccess={onSuccess}

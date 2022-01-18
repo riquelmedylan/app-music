@@ -7,16 +7,28 @@ export const getUserLogin = async (emailUser, pass) => {
                url: `http://localhost:8080/user/${emailUser}/${pass}`,
           });
 
-          const { token, email, msg, password } = res.data;
+          const { token, email, msg, password, uid } = res.data;
 
-          return { token, email, msg, password };
+          return { token, email, msg, password, uid };
      } catch (error) {
           throw new Error(error);
      }
 };
 
-export const postUser = (nickname, email, password, token) => {
-     axios({
+export const getUserShoppingCart = async (uid) => {
+     try {
+          const res = await axios({
+               method: "GET",
+               url: `http://localhost:8080/user/id/${uid}`,
+          });
+          return res.data.shoppingCart;
+     } catch (error) {
+          throw new Error(error);
+     }
+};
+
+export const postUser = async (nickname, email, password, token) => {
+     const res = await axios({
           method: "POST",
           url: "http://localhost:8080/user/",
           headers: {
@@ -28,13 +40,23 @@ export const postUser = (nickname, email, password, token) => {
                password: password,
                token: token,
           },
-     }).then((data) => data);
+     });
+     return res.data.user.uid;
 };
 
-export const postUserGoogle = (tokenId) => {
-     axios({
+export const postUserGoogle = async (tokenId) => {
+     const res = await axios({
           method: "POST",
           url: "http://localhost:8080/auth/google",
           data: { tokenId: tokenId },
-     }).then((data) => console.log(data.data));
+     });
+     return res.data.user.uid;
+};
+
+export const putUserShoppingCart = (uid, id) => {
+     axios({
+          method: "PUT",
+          url: `http://localhost:8080/user/uid/${uid}`,
+          data: { _id: id },
+     });
 };

@@ -36,10 +36,11 @@
                }
           }
           .single__product-buy {
-               background: fun.color("white-02");
-               border-radius: 5px;
-               border: 2px solid fun.color("black-05");
-               margin-top: 20px;
+               border: none;
+               color: fun.color("white-01");
+               background: fun.color("black-01");
+               font-weight: 500;
+               padding: 3px 0;
                outline: none;
                cursor: pointer;
           }
@@ -49,7 +50,7 @@
      .single__product {
           .single__product-container {
                .single__container {
-                    flex-direction: column;
+                    flex-direction: flex;
                }
           }
      }

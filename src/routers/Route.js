@@ -10,8 +10,9 @@ import { ProductsScreen } from "../components/pages/product/ProductsScreen";
 import { getRemoveSidebar } from "../helpers/getRemoveSidebar";
 import { LoginScreen } from "../components/pages/auth/LoginScreen";
 import { RegisterScreen } from "../components/pages/auth/RegisterScreen";
+import { ShoppingCartScreen } from "../components/pages/auth/ShoppingCartScreen";
 
-export const PublicUi = () => {
+export const Routers = () => {
      return (
           <>
                <Navbar />
@@ -33,6 +34,10 @@ export const PublicUi = () => {
                          <Route
                               path="/product/:category/:id"
                               element={<BuyProduct />}
+                         />
+                         <Route
+                              path="/auth/shop"
+                              element={<ShoppingCartScreen />}
                          />
                          <Route path="/" element={<HomeScreen />} />
                          <Route path="/home" element={<HomeScreen />} />

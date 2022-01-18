@@ -23,21 +23,23 @@ export const RegisterScreen = () => {
           }
      });
 
-     const onSubmit = (e) => {
+     const onSubmit = async (e) => {
           e.preventDefault();
           const nickname = nicknameRef.current.value;
           const email = emailRef.current.value;
           const password = passwordRef.current.value;
           const token = Math.random().toString(22).substring(3, 23);
+          const uid = await postUser(nickname, email, password, token);
           localStorage.setItem("user", token);
-          postUser(nickname, email, password, token);
+          localStorage.setItem("uid", uid);
           navigate("/");
      };
 
-     const onSuccess = (googleData) => {
+     const onSuccess = async (googleData) => {
           const { tokenId, googleId } = googleData;
-          postUserGoogle(tokenId);
+          const uid = await postUserGoogle(tokenId);
           localStorage.setItem("user", googleId);
+          localStorage.setItem("uid", uid);
           navigate("/");
      };
 
