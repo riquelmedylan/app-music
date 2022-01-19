@@ -806,6 +806,82 @@ a {
     top: 110px;
   }
 }
+.center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.center .main__container-cart {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0;
+  row-gap: 1rem;
+  width: 100vw;
+  overflow: hidden;
+}
+.center .main__container-cart .container__product-shop {
+  display: flex;
+  flex-direction: column;
+}
+.center .main__container-cart .container__product-shop .container__product-user {
+  display: flex;
+  justify-content: space-evenly;
+}
+.center .main__container-cart .container__product-shop .container__product-user .container__image-cart {
+  margin: auto 0;
+}
+.center .main__container-cart .container__product-shop .container__product-user .container__image-cart .image__productCart {
+  width: 60px;
+  height: 60px;
+}
+.center .main__container-cart .container__product-shop .container__product-user .container__info {
+  width: 65%;
+}
+.center .main__container-cart .container__product-shop .container__product-user .container__info .container__name {
+  width: 100%;
+}
+.center .main__container-cart .container__product-shop .container__product-user .container__info .container__name .name__product {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.center .main__container-cart .container__product-shop .container__product-user .container__info .items__footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+.center .main__container-cart .container__product-shop .container__product-user .container__info .items__footer .item__quantity {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 4.3rem;
+}
+.center .main__container-cart .container__product-shop .container__product-user .container__info .items__footer .item__quantity .quantity__button {
+  border: none;
+  color: #e9e9e9;
+  background: #000000;
+  font-weight: 500;
+  padding: 3px 0;
+  outline: none;
+  width: 25px;
+  cursor: pointer;
+}
+.center .main__container-cart .button__delate-product {
+  border: none;
+  background-color: crimson;
+  color: white;
+  padding: 4px 0;
+  cursor: pointer;
+}
+.center .main__container-cart .button__delate-product:hover {
+  background-color: black;
+  transition: background-color 0.5s ease;
+}
+
+@media (min-width: 768px) {
+  .center .main__container-cart {
+    width: 80%;
+  }
+}
 * {
   font-family: "Montserrat", sans-serif;
 }

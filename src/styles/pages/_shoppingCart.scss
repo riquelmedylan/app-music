@@ -1,0 +1,86 @@
+@use "../abstracts/colors" as colors;
+@use "../abstracts/font" as f;
+@use "../abstracts/mediaqueries" as mq;
+@use "../abstracts/functions" as fun;
+
+.center {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+
+     .main__container-cart {
+          display: flex;
+          flex-direction: column;
+
+          margin: 40px 0;
+          row-gap: 1rem;
+          width: 100vw;
+          overflow: hidden;
+          .container__product-shop {
+               display: flex;
+               flex-direction: column;
+
+               .container__product-user {
+                    display: flex;
+                    justify-content: space-evenly;
+                    .container__image-cart {
+                         margin: auto 0;
+                         .image__productCart {
+                              width: 60px;
+                              height: 60px;
+                         }
+                    }
+                    .container__info {
+                         width: 65%;
+                         .container__name {
+                              width: 100%;
+                              .name__product {
+                                   overflow: hidden;
+                                   text-overflow: ellipsis;
+                                   white-space: nowrap;
+                              }
+                         }
+                         .items__footer {
+                              display: flex;
+                              justify-content: space-evenly;
+                              .item__quantity {
+                                   align-items: center;
+                                   display: flex;
+                                   justify-content: space-between;
+                                   width: 4.3rem;
+                                   .quantity__button {
+                                        border: none;
+                                        color: fun.color("white-01");
+                                        background: fun.color("black-01");
+                                        font-weight: 500;
+                                        padding: 3px 0;
+                                        outline: none;
+                                        width: 25px;
+                                        cursor: pointer;
+                                   }
+                              }
+                         }
+                    }
+               }
+          }
+          .button__delate-product {
+               border: none;
+               background-color: crimson;
+               color: white;
+               padding: 4px 0;
+               cursor: pointer;
+          }
+          .button__delate-product:hover {
+               background-color: rgb(0, 0, 0);
+               transition: background-color 0.5s ease;
+          }
+     }
+}
+
+@media (min-width: fun.mq("md")) {
+     .center {
+          .main__container-cart {
+               width: 80%;
+          }
+     }
+}
