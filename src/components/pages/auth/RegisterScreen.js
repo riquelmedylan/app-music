@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import GoogleLogin from "react-google-login";
 import { useNavigate } from "react-router-dom";
-
 import { postUserGoogle, postUser } from "../../../helpers/getRequestUser";
 
 export const RegisterScreen = () => {
@@ -28,7 +27,7 @@ export const RegisterScreen = () => {
           const nickname = nicknameRef.current.value;
           const email = emailRef.current.value;
           const password = passwordRef.current.value;
-          const token = Math.random().toString(22).substring(3, 23);
+          const token = Math.random().toString(22).slice(2);
           const uid = await postUser(nickname, email, password, token);
           localStorage.setItem("user", token);
           localStorage.setItem("uid", uid);

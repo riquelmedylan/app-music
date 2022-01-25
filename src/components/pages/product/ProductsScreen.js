@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useProducts } from "../../../hooks/useProducts";
+import { Load } from "../../Load";
 import { ContainerProductScreen } from "./ContainerProductScreen";
 
 export const ProductsScreen = () => {
      const { category } = useParams();
 
      const product = useProducts(category);
-     return (
+
+     const [time, setTime] = useState(true);
+
+     useEffect(() => {
+          setTimeout(() => {
+               setTime(false);
+          }, 2000);
+     }, []);
+
+     return time ? (
+          <Load />
+     ) : (
           <div>
                <div className="container__main-text">
                     <h2>

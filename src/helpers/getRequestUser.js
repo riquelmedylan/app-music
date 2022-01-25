@@ -21,6 +21,7 @@ export const getUserShoppingCart = async (uid) => {
                method: "GET",
                url: `http://localhost:8080/user/id/${uid}`,
           });
+          console.log(res.data.shoppingCart);
           return res.data.shoppingCart;
      } catch (error) {
           throw new Error(error);

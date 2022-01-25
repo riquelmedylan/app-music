@@ -20,7 +20,7 @@ export const ShoppingCartScreen = (key) => {
                     <h2>Shopping Cart</h2>
                </div>
                <section className="main__container-cart">
-                    {arrayCart.length > 1 &&
+                    {arrayCart.length > 0 &&
                          arrayCart.map((data, i) => (
                               <div className="container__product-shop" key={i}>
                                    <ProductCartUser key={i} {...data} />

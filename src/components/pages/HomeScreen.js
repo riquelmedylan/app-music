@@ -1,8 +1,14 @@
 import React from "react";
 import { getRemoveSidebar } from "../../helpers/getRemoveSidebar";
+import { useGetProducts } from "../../hooks/useGetProducts";
+import { Load } from "../Load";
 
 export const HomeScreen = () => {
-     return (
+     const { data, loading } = useGetProducts();
+
+     return loading ? (
+          <Load />
+     ) : (
           <div className="main__container">
                <section onClick={getRemoveSidebar} className="section__uno">
                     <p>

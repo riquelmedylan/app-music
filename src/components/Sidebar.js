@@ -12,6 +12,7 @@ export const Sidebar = () => {
 
      const onSuccess = () => {
           localStorage.removeItem("user");
+          localStorage.removeItem("uid");
           history("/auth/login");
      };
 

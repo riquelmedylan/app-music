@@ -1,17 +1,20 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 import { useProduct } from "../../../hooks/useProduct";
+import { Load } from "../../Load";
 import { Product } from "./Product";
 
 export const BuyProduct = () => {
-     const { pathname } = useLocation();
-     const categoryAndId = pathname.substring(9);
-     const product = useProduct(categoryAndId);
+     const { id, category } = useParams();
+     const paramsData = `${category}/${id}`;
 
-     return (
+     const { data, loading } = useProduct(paramsData);
+
+     return loading ? (
+          <Load />
+     ) : (
           <section className="single__product">
-               {product && <Product {...product} />}
+               {data && <Product {...data} />}
           </section>
      );
 };

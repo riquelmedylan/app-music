@@ -15,6 +15,7 @@ export const Navbar = () => {
 
      const onSuccess = () => {
           localStorage.removeItem("user");
+          localStorage.removeItem("uid");
           history("/auth/login");
      };
 

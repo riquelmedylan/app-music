@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Load } from "../../Load";
 import { InstrumentProductScreen } from "./InstrumentProductScreen";
 
 export const Instruments = () => {
-     return (
+     const [time, setTime] = useState(true);
+
+     useEffect(() => {
+          setTimeout(() => {
+               setTime(false);
+          }, 2000);
+     });
+     return time ? (
+          <Load />
+     ) : (
           <div>
                <div className="container__main-text">
                     <h2>Instrumentos</h2>

@@ -1,9 +1,10 @@
 import React from "react";
+import { useProduct } from "../../../hooks/useProduct";
 import { useProducts } from "../../../hooks/useProducts";
 import { ContainerProductScreen } from "./ContainerProductScreen";
 export const InstrumentProductScreen = ({ product }) => {
      const category = useProducts(product);
-
+     useProduct();
      return (
           <div className="container__products-section">
                {product && (
