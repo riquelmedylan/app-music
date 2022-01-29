@@ -10,7 +10,7 @@ export const ContainerProductScreen = ({
 }) => {
      return (
           <Link to={`/product/${category}/${_id}`}>
-               <div className="container__product">
+               <article className="container__product">
                     <img
                          className="container__product-img"
                          src={image}
@@ -20,7 +20,7 @@ export const ContainerProductScreen = ({
                          <p>{nameProductBrand}</p>
                          <p>{price}</p>
                     </div>
-               </div>
+               </article>
           </Link>
      );
 };

@@ -11,8 +11,10 @@ import { getRemoveSidebar } from "../helpers/getRemoveSidebar";
 import { LoginScreen } from "../components/pages/auth/LoginScreen";
 import { RegisterScreen } from "../components/pages/auth/RegisterScreen";
 import { ShoppingCartScreen } from "../components/pages/auth/ShoppingCartScreen";
+import SwiperCore, { Autoplay } from "swiper";
 
 export const Routers = () => {
+     SwiperCore.use([Autoplay]);
      return (
           <>
                <Navbar />

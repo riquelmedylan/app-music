@@ -1,0 +1,67 @@
+@use "../abstracts/colors" as colors;
+@use "../abstracts/font" as f;
+@use "../abstracts/mediaqueries" as mq;
+@use "../abstracts/functions" as fun;
+
+.section__container {
+     margin: 30px auto;
+     width: 80%;
+     .card__swiper {
+          border-radius: 4px;
+          box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 50%);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+          height: 400px;
+          width: 100%;
+
+          .card__picture {
+               align-items: center;
+               display: flex;
+               .card__img {
+                    height: 12.5em;
+                    margin: 0 auto;
+                    width: 100%;
+               }
+          }
+          .section__description {
+               border-top-style: solid;
+               border-top-width: 3px;
+               border-top-color: rgba(128, 128, 128, 0.356);
+               border-radius: 8px;
+               text-align: center;
+               width: 100%;
+          }
+     }
+}
+.swiper-slide:nth-child(3) {
+     margin-right: 5% !important;
+}
+
+.router {
+     overflow: hidden;
+}
+
+.swiper {
+     margin: 0 0;
+     padding: 0 15px;
+}
+.swiper-slide {
+     padding: 1px 1.9px;
+}
+
+@media (min-width: 640px) {
+     .section__container {
+          .swiper-slide:nth-child(4) {
+               margin-right: 4% !important;
+          }
+     }
+}
+@media (min-width: 640px) {
+     .section__container {
+          .swiper-slide:nth-child(3) {
+               margin-right: 1% !important;
+          }
+     }
+}

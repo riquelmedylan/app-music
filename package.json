@@ -1,7 +1,6 @@
 {
   "name": "app-guitar",
   "version": "0.0.1",
-  
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "5.15.1",
@@ -16,6 +15,7 @@
     "react-router-dom": "6.0.2",
     "react-scripts": "4.0.3",
     "sass": "1.43.5",
+    "swiper": "7.4.1",
     "web-vitals": "1.1.2"
   },
   "scripts": {
