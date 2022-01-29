@@ -7,9 +7,11 @@ import { CardHome } from "./product/CardHome";
 export const HomeScreen = () => {
      const { data, loading } = useGetProducts();
      const dataArrayVisited = [];
+     const dataArrayId = [];
 
      const isDataArrayVisited = () => {
-          let visitedArray = [];
+          const visitedArray = [];
+          const product = [];
           data &&
                data.map((data) => {
                     visitedArray.push(data.visited);
@@ -20,6 +22,19 @@ export const HomeScreen = () => {
           arrayVisited.forEach((visited) => {
                data.forEach((data) => {
                     data.visited === visited && dataArrayVisited.push(data);
+               });
+          });
+
+          data &&
+               data.map((data) => {
+                    product.push(data._id);
+                    return product.sort();
+               });
+          const productId = product.slice(0, 10);
+
+          productId.forEach((_id) => {
+               data.forEach((data) => {
+                    data._id === _id && dataArrayId.push(data);
                });
           });
      };
@@ -58,41 +73,12 @@ export const HomeScreen = () => {
                          ))}
                </Swiper>
                <h2>Nuevos Productos</h2>
-               {/* <section onClick={getRemoveSidebar} className="section__uno">
-                    <p>
-                         LOrem LOrem LOrem LOrem LOremLOrem LOrem LOrem LOrem
-                         LOrem LOremLOrem LOrem LOrem LOrem LOrem LOremLOrem
-                         LOrem LOrem LOrem LOrem LOremLOrem
-                    </p>
-               </section>
-               <section onClick={getRemoveSidebar} className="section__dos">
-                    <p>
-                         LOrem LOrem LOrem LOrem LOremLOrem LOrem LOrem LOrem
-                         LOrem LOremLOrem LOrem LOrem LOrem LOrem LOremLOrem
-                         LOrem LOrem LOrem LOrem LOremLOrem
-                    </p>
-               </section>
-               <section onClick={getRemoveSidebar} className="section__uno">
-                    <p>
-                         LOrem LOrem LOrem LOrem LOremLOrem LOrem LOrem LOrem
-                         LOrem LOremLOrem LOrem LOrem LOrem LOrem LOremLOrem
-                         LOrem LOrem LOrem LOrem LOremLOrem
-                    </p>
-               </section>
-               <section onClick={getRemoveSidebar} className="section__uno">
-                    <p>
-                         LOrem LOrem LOrem LOrem LOremLOrem LOrem LOrem LOrem
-                         LOrem LOremLOrem LOrem LOrem LOrem LOrem LOremLOrem
-                         LOrem LOrem LOrem LOrem LOremLOrem
-                    </p>
-               </section>
-               <section onClick={getRemoveSidebar} className="section__uno">
-                    <p>
-                         LOrem LOrem LOrem LOrem LOremLOrem LOrem LOrem LOrem
-                         LOrem LOremLOrem LOrem LOrem LOrem LOrem LOremLOrem
-                         LOrem LOrem LOrem LOrem LOremLOrem
-                    </p>
-               </section> */}
+               <article className="grid__new-products">
+                    {dataArrayId.length > 1 &&
+                         dataArrayId.map((data, i) => (
+                              <CardHome {...data} key={i} />
+                         ))}
+               </article>
           </section>
      );
 };

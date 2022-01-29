@@ -15,7 +15,7 @@ export const CardHome = (data) => {
                          </picture>
                          <section className="section__description">
                               <p>{data.nameProductBrand}</p>
-                              <p>{data.price}</p>
+                              <p>${data.price}</p>
                          </section>
                     </article>
                </Link>
