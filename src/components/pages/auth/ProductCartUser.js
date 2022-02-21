@@ -1,13 +1,20 @@
 import React from "react";
+import { deleteProductCart } from "../../../helpers/deleteProductCart";
 
 export const ProductCartUser = ({
      nameProductBrand,
      price,
      image,
+
      _id,
      quantity,
 }) => {
-     console.log(nameProductBrand, price, image, _id, quantity);
+     const uid = localStorage.getItem("uid");
+     const deleteProduct = (e) => {
+          e.preventDefault();
+          deleteProductCart(uid, _id);
+     };
+
      return (
           <>
                <div className="container__product-user">
@@ -40,7 +47,12 @@ export const ProductCartUser = ({
                          </div>
                     </div>
                </div>
-               <button className="button__delate-product">Delete</button>
+               <button
+                    onClick={deleteProduct}
+                    className="button__delate-product"
+               >
+                    Delete
+               </button>
           </>
      );
 };

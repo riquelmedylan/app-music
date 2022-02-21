@@ -9,7 +9,7 @@ export const Product = ({ name, description, price, image, visited }) => {
      const isBuy = (e) => {
           e.preventDefault();
           const uid = localStorage.getItem("uid");
-          putUserShoppingCart(uid, id);
+          putUserShoppingCart(uid, id, price);
           uid ? setBoolean(true) : setBoolean(false);
      };
 

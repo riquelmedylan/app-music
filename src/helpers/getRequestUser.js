@@ -1,5 +1,6 @@
 import axios from "axios";
 const { REACT_APP_SECRET_OR_PRIVATE_KEY } = process.env;
+
 export const getUserLogin = async (emailUser, pass) => {
      try {
           const res = await axios({
@@ -21,8 +22,9 @@ export const getUserShoppingCart = async (uid) => {
                method: "GET",
                url: `http://localhost:8080/user/id/${uid}`,
           });
-          console.log(res.data.shoppingCart);
-          return res.data.shoppingCart;
+          const { shoppingCart, finalPrice } = res.data;
+
+          return { shoppingCart, finalPrice };
      } catch (error) {
           throw new Error(error);
      }
@@ -54,10 +56,10 @@ export const postUserGoogle = async (tokenId) => {
      return res.data.user.uid;
 };
 
-export const putUserShoppingCart = (uid, id) => {
+export const putUserShoppingCart = (uid, id, price) => {
      axios({
           method: "PUT",
           url: `http://localhost:8080/user/uid/${uid}`,
-          data: { _id: id },
+          data: { _id: id, amount: price },
      });
 };
