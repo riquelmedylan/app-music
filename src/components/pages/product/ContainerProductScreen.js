@@ -18,7 +18,7 @@ export const ContainerProductScreen = ({
                     />
                     <div className="container__product-text">
                          <p>{nameProductBrand}</p>
-                         <p>{price}</p>
+                         <p>${price}</p>
                     </div>
                </article>
           </Link>

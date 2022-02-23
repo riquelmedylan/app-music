@@ -9,6 +9,8 @@
      flex-wrap: wrap;
      flex-direction: column;
      justify-content: center;
+     margin: 0 auto;
+     width: 90%;
      .container__main-text {
           display: block;
      }
@@ -20,6 +22,7 @@
           overflow: hidden;
           padding: 10px;
           row-gap: 1rem;
+          width: 100%;
           .container__product-shop {
                display: flex;
                flex-direction: column;
@@ -81,6 +84,18 @@
      .final-price {
           align-self: flex-end;
      }
+     .button-buy {
+          border: none;
+          background: #000000;
+          color: #e9e9e9;
+          cursor: pointer;
+          font-weight: 500;
+          margin: 0 auto;
+          outline: none;
+          padding: 3px 0;
+          text-align: center;
+          width: 10rem;
+     }
 }
 
 @media (min-width: fun.mq("md")) {
@@ -88,5 +103,24 @@
           .main__container-cart {
                width: 80%;
           }
+     }
+}
+
+.delete___content {
+     display: none !important;
+}
+
+.delete__cart-product--animation {
+     animation: heightDelete 0.5s ease;
+     z-index: 3;
+     position: relative;
+}
+
+@keyframes heightDelete {
+     0% {
+          height: 128px;
+     }
+     100% {
+          height: 0;
      }
 }

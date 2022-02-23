@@ -25,6 +25,6 @@ export const useGetProducts = () => {
                     }, 2000)
           );
      }, []);
-     console.log(dataProducts);
+
      return dataProducts;
 };

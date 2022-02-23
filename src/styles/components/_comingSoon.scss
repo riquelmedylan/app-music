@@ -1,0 +1,27 @@
+@use "../abstracts/colors" as colors;
+@use "../abstracts/font" as f;
+@use "../abstracts/mediaqueries" as mq;
+@use "../abstracts/functions" as fun;
+
+.container__coming-soon {
+     background: #cccccc85;
+     height: 100vh;
+     left: 0;
+     position: fixed;
+     top: 0;
+     text-align: center;
+     width: 100%;
+     z-index: 3;
+     .close__container-soon {
+          font-weight: 700;
+          font-size: 1.5em;
+          position: fixed;
+          right: 5%;
+          top: -2%;
+     }
+     .text__coming-soon {
+          position: fixed;
+          top: 9em;
+          width: 100%;
+     }
+}

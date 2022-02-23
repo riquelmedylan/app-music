@@ -1,22 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { deleteProductCart } from "../../../helpers/deleteProductCart";
 
 export const ProductCartUser = ({
      nameProductBrand,
      price,
      image,
-
+     finalPrice,
      _id,
-     quantity,
 }) => {
      const uid = localStorage.getItem("uid");
+     const [transition, setTransition] = useState(false);
+     const [display, setDisplay] = useState(false);
+
      const deleteProduct = (e) => {
           e.preventDefault();
-          deleteProductCart(uid, _id);
+          deleteProductCart(uid, _id, price, finalPrice);
+          setTransition(true);
+          setTimeout(() => {
+               setDisplay(true);
+               window.location.reload(true);
+          }, 500);
      };
 
      return (
-          <>
+          <div
+               className={`container__product-shop ${
+                    transition ? "delete__cart-product--animation" : ""
+               } ${display ? "delete___content" : ""}`}
+          >
                <div className="container__product-user">
                     <div className="container__image-cart">
                          <img
@@ -32,7 +43,7 @@ export const ProductCartUser = ({
                               </p>
                          </div>
                          <div className="items__footer">
-                              <div className="item__quantity">
+                              {/* <div className="item__quantity">
                                    <p>1</p>
                                    <button className="quantity__button">
                                         +
@@ -40,9 +51,9 @@ export const ProductCartUser = ({
                                    <button className="quantity__button">
                                         -
                                    </button>
-                              </div>
+                              </div> */}
                               <div>
-                                   <p>{price}</p>
+                                   <p>Precio: ${price}</p>
                               </div>
                          </div>
                     </div>
@@ -53,6 +64,6 @@ export const ProductCartUser = ({
                >
                     Delete
                </button>
-          </>
+          </div>
      );
 };

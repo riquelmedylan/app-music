@@ -42,7 +42,7 @@ export const Product = ({ name, description, price, image, visited }) => {
                     <p>{description}</p>
                </div>
                <strong className="single__container-price">
-                    Precio: {price}
+                    Precio: ${price}
                </strong>
 
                <button onClick={isBuy} className="single__product-buy">

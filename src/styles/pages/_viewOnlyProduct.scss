@@ -14,8 +14,14 @@
           overflow: hidden;
           row-gap: 20px;
           width: 100%;
+          .single__product-img {
+               height: 19em;
+               margin: 0 auto;
+               width: 10rem;
+          }
           .single__container {
                display: flex;
+               justify-content: center;
                .single__container-imgs {
                     border: 1px solid gray;
                     cursor: pointer;
