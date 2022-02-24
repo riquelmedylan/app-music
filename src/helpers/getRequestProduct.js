@@ -11,7 +11,7 @@ export const getProductsCategory = async (category) => {
 export const getProducts = async () => {
      const { REACT_APP_URI } = process.env;
 
-     const res = await axios.get(`${REACT_APP_URI}products`);
+     const res = await axios.get(`${REACT_APP_URI}/products`);
 
      return await res.data.products;
 };
