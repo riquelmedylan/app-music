@@ -6,7 +6,7 @@ import { ProductCartUser } from "./ProductCartUser";
 export const ShoppingCartScreen = () => {
      const [arrayCart, setArrayCart] = useState([]);
      const [finalPrice, setFinalPrice] = useState(null);
-     const [comingSoon, setComingSoon] = useState([false]);
+     const [comingSoon, setComingSoon] = useState(false);
      useEffect(() => {
           const isCart = async () => {
                const uid = localStorage.getItem("uid");
@@ -19,6 +19,7 @@ export const ShoppingCartScreen = () => {
           isCart();
      }, []);
 
+     console.log(comingSoon);
      const buyProducts = () => {
           setComingSoon(true);
      };
