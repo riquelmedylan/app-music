@@ -1,10 +1,10 @@
 import axios from "axios";
-const { REACT_APP_SECRET_OR_PRIVATE_KEY } = process.env;
+const { REACT_APP_SECRET_OR_PRIVATE_KEY, REACT_APP_URI } = process.env;
 
 export const getUserLogin = async (emailUser, pass) => {
      const res = await axios({
           method: "GET",
-          url: `http://localhost:8080/user/${emailUser}/${pass}`,
+          url: `${REACT_APP_URI}/user/${emailUser}/${pass}`,
      });
 
      const { token, email, msg, password, uid } = res.data;
@@ -15,7 +15,7 @@ export const getUserLogin = async (emailUser, pass) => {
 export const getUserShoppingCart = async (uid) => {
      const res = await axios({
           method: "GET",
-          url: `http://localhost:8080/user/id/${uid}`,
+          url: `${REACT_APP_URI}/user/id/${uid}`,
      });
      const { shoppingCart, finalPrice } = res.data;
 
@@ -25,7 +25,7 @@ export const getUserShoppingCart = async (uid) => {
 export const postUser = async (nickname, email, password, token) => {
      const res = await axios({
           method: "POST",
-          url: "http://localhost:8080/user/",
+          url: `${REACT_APP_URI}/user/`,
           headers: {
                Authorization: REACT_APP_SECRET_OR_PRIVATE_KEY,
           },
@@ -42,7 +42,7 @@ export const postUser = async (nickname, email, password, token) => {
 export const postUserGoogle = async (tokenId) => {
      const res = await axios({
           method: "POST",
-          url: "http://localhost:8080/auth/google",
+          url: `${REACT_APP_URI}/auth/google`,
           data: { tokenId: tokenId },
      });
      return res.data.user.uid;
@@ -51,7 +51,7 @@ export const postUserGoogle = async (tokenId) => {
 export const putUserShoppingCart = (uid, id, price) => {
      axios({
           method: "PUT",
-          url: `http://localhost:8080/user/uid/${uid}`,
+          url: `${REACT_APP_URI}/user/uid/${uid}`,
           data: { _id: id, amount: price },
      });
 };
